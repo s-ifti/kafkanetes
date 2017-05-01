@@ -5,6 +5,8 @@ Updated Dockerfile to use centos as starting image and updated to use kafka  0.1
 
 Start with Openshift origin vagrant box
 
+
+
 Vagrant.configure(2) do |config|
   config.vm.box = "openshift/origin-all-in-one"
 
@@ -14,12 +16,15 @@ Vagrant.configure(2) do |config|
   end
 end
 
-$ vagrant up
 
+
+ ```bash
+$ vagrant up
 $ vagrant ssh
 
 build-image using
 
+ ```bash
 $ oc new-project kafka
 $ oc create -f kafkanetes-build.yaml
 $ oc new-app kafkanetes-build.yaml
