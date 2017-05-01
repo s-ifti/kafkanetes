@@ -8,12 +8,24 @@ Start with Openshift origin vagrant box
 
 
 Vagrant.configure(2) do |config|
+
+
   config.vm.box = "openshift/origin-all-in-one"
 
+
+
   config.vm.provider "virtualbox" do |vb|
+
+
     vb.memory = "4096"
+
+
     vb.cpus = 3
+
+
   end
+
+
 end
 
 
@@ -25,11 +37,13 @@ $ vagrant ssh
 build-image using
 
  ```bash
-$ oc new-project kafka
+$ oc new-project {PROJECTNAME} 
 $ oc create -f kafkanetes-build.yaml
 $ oc new-app kafkanetes-build.yaml
-$ oc new-app kafkanetes-deploy-zk-3.yaml --docker-image={LOCALREGISTRYIP}:5000/kafka/kafkanetes:latest --insecure-registry=true
-$ oc new-app kafkanetes-deploy-kafka-2.yaml --docker-image={LOCALREGISTRYIP}:5000/kafka/kafkanetes:latest --insecure-registry=true
+
+
+$ oc new-app --docker-image={LOCALREGISTRYIP}:5000/{PROJECTNAME}/kafkanetes:latest --insecure-registry=true kafkanetes-deploy-zk-3.yaml
+$ oc new-app kafkanetes-deploy-kafka-2.yaml --docker-image={LOCALREGISTRYIP}:5000/{PROJECTNAME}/kafkanetes:latest --insecure-registry=true
 
 
 

@@ -69,7 +69,7 @@ objects:
           args:
           - config/server.properties
           - --override
-          - zookeeper.connect=${ZOOKEEPER_SERVICE}
+          - zookeeper.connect=${ZOOKEEPER_SERVICE}-1
           - --override
           - advertised.host.name=${OBJECT_NAME_PREFIX}-1
           - --override
@@ -116,7 +116,7 @@ objects:
           args:
           - config/server.properties
           - --override
-          - zookeeper.connect=${ZOOKEEPER_SERVICE}
+          - zookeeper.connect=${ZOOKEEPER_SERVICE}-2
           - --override
           - advertised.host.name=${OBJECT_NAME_PREFIX}-2
           - --override
