@@ -1,4 +1,27 @@
 # "Kafkanetes"
+Extended jim-minter/kafkanetes
+
+Updated Dockerfile to use centos as starting image and updated to use kafka  0.10.1.1
+
+Start with Openshift origin vagrant box
+
+$vagrant ssh
+
+build-image using
+
+$ oc new-project kafka
+$ oc create -f kafkanetes-build.yaml
+$ oc new-app kafkanetes-build.yaml
+$ oc new-app kafkanetes-deploy-zk-3.yaml --docker-image={LOCALREGISTRYIP}:5000/kafka/kafkanetes:latest --insecure-registry=true
+$ oc new-app kafkanetes-deploy-kafka-2.yaml --docker-image={LOCALREGISTRYIP}:5000/kafka/kafkanetes:latest --insecure-registry=true
+
+
+
+
+
+
+
+# Original Readme
 
 Run [Apache Kafka](https://kafka.apache.org/) and [Apache ZooKeeper](https://zookeeper.apache.org/) on [OpenShift v3](https://www.openshift.com/).
 
