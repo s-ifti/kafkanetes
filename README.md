@@ -6,7 +6,7 @@ Updated Dockerfile to use centos as starting image and updated to use kafka  0.1
 Start with Openshift origin vagrant box
 
 
-
+``` vagrant file
 Vagrant.configure(2) do |config|
 
 
@@ -27,13 +27,13 @@ Vagrant.configure(2) do |config|
 
 
 end
-
+```
 
 
  ```bash
 $ vagrant up
 $ vagrant ssh
-
+```
 build-image using
 
  ```bash
@@ -44,7 +44,7 @@ $ oc new-app kafkanetes-build.yaml
 
 $ oc new-app --docker-image={LOCALREGISTRYIP}:5000/{PROJECTNAME}/kafkanetes:latest --insecure-registry=true kafkanetes-deploy-zk-3.yaml
 $ oc new-app kafkanetes-deploy-kafka-2.yaml --docker-image={LOCALREGISTRYIP}:5000/{PROJECTNAME}/kafkanetes:latest --insecure-registry=true
-
+```
 
 
 
