@@ -1,7 +1,7 @@
 # "Kafkanetes"
 Extended jim-minter/kafkanetes
 
-Updated Dockerfile to use centos as starting image and updated to use kafka  0.10.1.1
+Updated Dockerfile to use centos as starting image, using kafka  0.10.1.1
 
 Start with Openshift origin vagrant box
 
